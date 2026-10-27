@@ -1,0 +1,7 @@
+#theme: Minima
+color_scheme: dark
+title: The Broadcast
+description: The official human networking platform of the Universal Union.
+#remote_theme: "dracula/gh-pages"
+github:
+  is_project_page: false
