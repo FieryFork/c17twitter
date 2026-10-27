@@ -1,0 +1,149 @@
+@import url('https://googleapis.com');
+
+:root {
+  --combine-bg-dark: #0a0f14;
+  --combine-bg-panel: rgba(13, 21, 28, 0.85);
+  --combine-border: #1e3545;
+  --combine-cyan: #00f0ff;
+  --combine-cyan-dim: rgba(0, 240, 255, 0.2);
+  --combine-text-bright: #e2f4f7;
+  --combine-text-muted: #5f8295;
+  --combine-alert: #ff3b3b;
+  
+  --font-hud: 'Share Tech Mono', monospace;
+  --font-ui: 'Rajdhani', sans-serif;
+}
+
+/* Base Terminal Styling */
+body {
+  background-color: var(--combine-bg-dark);
+  color: var(--combine-text-bright);
+  font-family: var(--font-ui);
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding: 20px;
+  background-image: 
+    linear-gradient(rgba(18, 30, 41, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 30, 41, 0.3) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Scanline Overlay Effect */
+body::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 99999;
+  opacity: 0.4;
+  pointer-events: none;
+  background-size: 100% 4px, 6px 100%;
+}
+
+/* Headers / Overwatch Dispatches */
+h1, h2, h3, h4 {
+  font-family: var(--font-hud);
+  text-transform: uppercase;
+  color: var(--combine-cyan);
+  margin-top: 0;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+}
+
+h1 {
+  border-bottom: 2px solid var(--combine-cyan);
+  padding-bottom: 5px;
+  font-size: 2rem;
+}
+
+h1::before {
+  content: "// DOMINANT.NODE // ";
+  font-size: 1rem;
+  color: var(--combine-text-muted);
+  vertical-align: middle;
+}
+
+/* Tactical HUD Panels */
+.panel {
+  background: var(--combine-bg-panel);
+  border: 1px solid var(--combine-border);
+  border-left: 4px solid var(--combine-cyan);
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+  position: relative;
+}
+
+.panel::after {
+  content: "SYS.OP";
+  position: absolute;
+  top: -1px;
+  right: 10px;
+  font-family: var(--font-hud);
+  font-size: 0.65rem;
+  background: var(--combine-border);
+  color: var(--combine-text-muted);
+  padding: 2px 6px;
+}
+
+/* Interactive Elements */
+a {
+  color: var(--combine-cyan);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--combine-text-bright);
+  background: var(--combine-cyan-dim);
+  text-shadow: 0 0 5px var(--combine-cyan);
+}
+
+button, .btn {
+  background: transparent;
+  border: 1px solid var(--combine-cyan);
+  color: var(--combine-cyan);
+  font-family: var(--font-hud);
+  text-transform: uppercase;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+button:hover, .btn:hover {
+  background: var(--combine-cyan);
+  color: var(--combine-bg-dark);
+  box-shadow: 0 0 12px var(--combine-cyan);
+}
+
+button:active, .btn:active {
+  background: var(--combine-text-bright);
+  border-color: var(--combine-text-bright);
+}
+
+/* Code / Data Streams */
+code, pre {
+  font-family: var(--font-hud);
+  color: var(--combine-text-bright);
+  background: rgba(0, 0, 0, 0.4);
+  padding: 2px 6px;
+  border: 1px solid rgba(95, 130, 149, 0.3);
+}
+
+/* Lists as Directives */
+ul {
+  list-style-type: "▪ ";
+  padding-left: 20px;
+}
+
+li {
+  margin-bottom: 8px;
+  color: var(--combine-text-bright);
+}
+
+/* Status Indicators */
+.text-muted { color: var(--combine-text-muted); }
+.text-alert { 
+  color: var(--combine-alert); 
+  text-shadow: 0 0 8px rgba(255, 59, 59, 0.6);
+}
