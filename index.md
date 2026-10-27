@@ -1,1 +1,1 @@
-<head><link rel="stylesheet" href="juicy/assets/css/style.css"></head>
+<head><link rel="stylesheet" href="c17twitter/assets/css/style.css"></head>
